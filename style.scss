@@ -1,0 +1,561 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+
+$red : #E22826;
+$grey : #464646;
+
+@mixin transform($transform){
+	
+	transform : $transform;
+	-webkit-transform : $transform;
+
+}
+
+@mixin transition($transition){
+	
+	transition : $transition;
+	-webkit-transition : $transition;
+
+}
+
+	a, a:hover, a:active, a:visited, a:focus{
+		
+			text-decoration: none;
+			color: #000000;
+		}
+		
+
+*{
+	
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.openanim{
+
+	animation: openanim 0.5s forwards;
+
+}
+
+.closeanim{
+
+	animation: closeanim 0.5s forwards;
+
+}
+
+@-webkit-keyframes openanim{
+
+	from{height: 0px}
+	to{height: auto}
+
+}
+
+
+@-webkit-keyframes closeanim{
+
+	from{height: auto}
+	to{height: 0px}
+
+}
+
+@-webkit-keyframes mjanim{
+
+	from{@include transform(translate(130%, 0%))}
+	to{@include transform(translate(0%, 0%))}
+
+}
+
+@-webkit-keyframes home-info-anim{
+
+	from{@include transform(scale(0))}
+	to{@include transform(scale(1))}
+
+}
+
+@-webkit-keyframes bio-bg-anim{
+
+	from{@include transform (scale(1.1));}
+	to{@include transform (scale(1));}
+
+
+}
+
+.container{
+
+	width: 1170px;
+	margin: 0px auto;
+	background: #ffffff;
+
+}
+
+.nav{
+
+	background: #ffffff;
+	position: fixed;
+	height: 0px;
+	overflow:hidden;
+	top: 0px;
+	z-index: 10000;
+	width: 100%;
+	
+	.closeNav{
+		
+		font-size: 30px;
+		padding: 10px 20px;
+		width: 200px;
+		float: left;
+		cursor: pointer;
+		z-index: 30000;
+		
+	
+	}
+	
+	ul{
+	
+		text-align: center;
+	
+		li{
+			
+			padding: 30px 0px;
+			border-bottom: 2px solid #ffffff;
+			list-style: none;
+			cursor: pointer;
+			width: 200px;
+			margin: 0px auto;
+
+		
+		}
+		
+		a, a:hover, a:active, a:visited, a:focus{
+		
+			text-decoration: none;
+			color: #000000;
+		}
+		
+		li:hover{
+			
+			border-bottom: 2px solid $red;
+		
+		}
+	
+	}
+
+}
+
+#home{
+
+	background:$red;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+	
+	.menuButton{
+	
+		color: #ffffff;
+		font-size: 20px;
+		padding: 20px;
+		cursor: pointer;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: 2000;
+		
+	}
+	
+	#home-info{
+	
+		height: auto;
+		width: 500px;
+		text-align: center;
+		padding : 20px 0px;
+		position: absolute;
+		top: 25%;
+		margin-left: -250px;
+		left: 40%;
+		color: #ffffff;
+		animation: home-info-anim 3s;
+		
+		h1, p{
+		
+			margin: 20px;
+		
+		}
+	
+		#mjLogo{
+		
+			width: 100px;
+			height: auto;
+			margin: 0px auto;
+			
+			img{
+				
+				width: 100%;
+				height: auto;
+			
+			}
+		
+		}
+		
+		span{
+			color: #000;
+		}
+		
+		
+	
+	}
+	
+	.mjImg{
+	
+			position: absolute;
+			top: 10%;
+			right: 15%;
+			width: 500px;
+			height: auto;
+
+		animation: mjanim 5s;	
+	
+	}
+	
+	.social{
+	
+		width: 100%;
+		background: $grey;
+		padding: 20px 0px;
+		text-align: center;
+		position: absolute;
+		bottom: 0px;
+
+		a, a:hover, a:active, a:visited, a:focus{
+		
+			text-decoration: none;
+			color: #ffffff;
+			margin: 0px 20px;
+		}
+	
+	}
+
+}
+
+#bio{
+	
+	height: auto;
+	@extend #home;
+	
+	.container{padding-bottom: 10px;}
+		
+	#bio-landing{
+		height: 100vh;
+		position: relative;
+		overflow: hidden;
+		
+		.landing-bg{
+		
+			height: 100%;
+			width: 100%;
+			position: absolute; 
+			top: 0px;
+			left: 0px;
+			animation: bio-bg-anim 5s infinite alternate ease-in-out;
+		
+		}
+		
+		#bio-info{
+		
+			position: absolute;
+			top: 10%;
+			left: 50%;
+			width: 300px;
+			height: auto;
+			margin-left: -150px;
+			z-index: 10;
+			
+			img{
+			
+				height: auto;
+				width: 100%;
+							
+			}
+			
+			h2{
+			
+				color: #ffffff;
+				text-align: center;
+				background: rgba(0,0,0,0.4);
+				padding: 20px;
+				margin-top: 10px;
+				
+			}
+			
+		}	
+		
+		.overlay-black{
+			
+			width: 50%;
+			height: 100%;
+			background: rgba(0,0,0,0.5);
+			float:left;
+			position: relative;
+			
+			.choice{
+				
+				position: absolute;
+				bottom: 20%;
+				left: 50%;
+				width: 200px;
+				margin-left: -100px;
+				background: #000;
+				padding: 20px;
+				text-align: center;				
+				color: #ffffff;
+				cursor: pointer;
+			
+			}
+		
+		}
+		
+		.overlay-red{
+			
+			@extend .overlay-black;
+			background: rgba(226,40,38,0.5);
+			
+			.choice{
+				
+				background: $red;
+			
+			}
+		
+		}
+		
+	}
+	
+	#biography-content{
+	
+		background: $red;
+		height: auto;
+		padding-bottom: 100px;
+		
+		#bio-back-button{
+		
+			padding: 30px 30px;
+			color: #ffffff;
+			cursor: pointer;
+			font-size: 20px;
+		
+		}
+		
+		.row{
+		
+			display: flex;
+			margin-bottom: -5px;
+			
+			.item{
+								
+				width: 100%;
+				overflow: hidden;
+				
+				header{
+				
+					border-bottom: $red 2px solid;
+					margin: 0px auto;
+					text-align: center;
+					margin: 0px 20%;					
+					padding: 30px 0px;
+				
+				}
+				
+				p{
+					
+					padding: 20px 20px;
+				
+				}
+				
+				img{
+				
+					width: 100%;
+					position: relative;
+				
+				}
+			
+			}
+		
+		}
+	
+	}
+	
+	#bktotop{
+	
+		padding: 10px 20px;
+		margin: 10px 0px;
+		text-align: left;
+		width: 200px;
+		margin-right: auto;
+		border-bottom: #ffffff 2px solid;
+		@include transition(border-bottom 1s);
+		cursor: pointer;
+	
+	}
+	
+	#bktotop:hover{
+			
+		border-bottom: $red 2px solid;
+	}
+
+}
+
+.videoBio{
+	
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	z-index: 400000;
+	
+	#close{
+	
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		padding: 10px;
+		color: #ffffff;
+		font-size: 30px;
+		cursor: pointer;
+	
+	}
+	
+	#close:hover{
+	
+		background: rgba(0,0,0,0.5);
+	
+	}
+	
+	iframe{
+	
+		min-width: 100%;
+		min-height: 100%;
+		max-width: 100%;
+		max-height: 100%;
+		
+	
+	}
+
+}
+
+#music{
+
+	height: auto;
+	@extend #home;
+		
+	.container{
+	background: none;
+	padding-bottom: 100px;
+	}
+	
+	header{
+	
+		text-align: center;
+		color: #ffffff;
+		padding: 20px 0px;
+	
+	}
+	
+	.row{
+	
+		display: flex;
+	
+		.album{
+		
+			position: relative;
+			cursor:pointer;
+			width: 100%;
+			height: auto;
+			margin: 5%;
+			overflow: hidden;
+			
+			.overlay{
+			
+				background: rgba(0,0,0,0.4);
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 2;
+				opacity: 0;
+				@include transition(opacity 0.5s);
+					
+			}
+		
+			img{
+			
+				width: 100%;
+				@include transition(transform 1s);
+			
+			}
+			
+			.open{
+			
+				position: absolute;
+				color: #000;
+				z-index: 3;
+				text-align: center;
+				font-size: 20px;
+				padding: 20px;
+				background: #ffffff;
+				top: 50%;
+				opacity: 0;
+				left: 50%;
+				@include transform(translate(-50%,-50%));
+			
+			}
+			
+			
+			
+		}
+		
+		.album:hover > .overlay{
+			
+			opacity: 1;
+		
+		}
+	
+		
+		.album:hover > .open{
+			
+			opacity: 1;
+		
+		}
+	
+		
+		.album:hover > img{
+			
+			@include transform(scale(1.2))
+		
+		}
+	
+	}
+	
+	
+}
+
+footer{
+
+	height: auto;
+	background: $grey;
+	padding: 20px;
+	color: #ffffff;
+	display: flex;
+	
+	p{
+		
+		width: 100%;
+	
+	}
+	
+	.follow{
+	
+		text-align: right;
+		
+	}
+
+}
